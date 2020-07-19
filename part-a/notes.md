@@ -5,7 +5,8 @@
 - 求值规则
 
 
-类型：
+
+类型
 
 - one-of 比如
 ```sml
@@ -16,6 +17,7 @@ datatype TrafficLightColor = Red | Green | Yellow
 ```sml
 datatype 'a List = Empty | Cons of 'a * 'a List
 ```
+
 
 
 模式匹配
@@ -48,19 +50,22 @@ fun full_name {first_name=x, middle_name=y, last_name=z} =
   ```sml
   fun zip list_pair = 
       case list_pair of
-	  ([],    [])    => []
+          ([],    [])    => []
         | (x::xs, y::ys) => (x, y)::zip(xs, ys)
         | _              => raise ListLengthMismatch
 ```
 
+
+
 多态：
 
 ```sml
-fun partial_name {first_name=x, middle_name=y, last_name=z} = 
+fun partial_name {first_name = x, middle_name = y, last_name = z} = 
     x ^ " " ^ z
 ```
 
 其中 `y` 没用上，因此编译器推导出来的函数类型是 `fn : {first_name:string, middle_name:'a, last_name:string} -> string`
+
 
 
 equality type
